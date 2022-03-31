@@ -55,7 +55,7 @@ class FocusSquare: SCNNode {
     }
     
     /// The current state of the focus square
-    private var state: State = .initializing {
+    var state: State = .initializing {
         didSet {
             // Ensure the state has changed
             guard state != oldValue else { return }

@@ -10,11 +10,11 @@ import UIKit
 import ARKit
 
 /**
- Manages user interaction with virtual objects to enable one-finger tap, one- and two-finger pan,
-    and two-finger rotation gesture recognizers to let the user position and orient virtual objects.
+ Manages user interaction with virtual nodes to enable one-finger tap, one- and two-finger pan,
+    and two-finger rotation gesture recognizers to let the user position and orient virtual nodes.
 */
 
-/// - Tag: VirtualObjectInteraction
+/// - Tag: AudioNodeInteraction
 class AudioNodeInteraction: NSObject, UIGestureRecognizerDelegate {
     
     // MARK: Class Properties
@@ -29,11 +29,11 @@ class AudioNodeInteraction: NSObject, UIGestureRecognizerDelegate {
     let audioDesignerViewController: AudioDesignerViewController
     
     
-    /// The object that has been most recently intereacted with.
+    /// The node that has been most recently intereacted with.
     /// The `selectedObject` can be moved at any time with the tap gesture.
     var selectedObject: AudioNode?
     
-    /// The object that is tracked for use by the pan and rotation gestures.
+    /// The node that is tracked for use by the pan and rotation gestures.
     var trackedObject: AudioNode? {
         didSet {
             guard trackedObject != nil else { return }
@@ -73,15 +73,15 @@ class AudioNodeInteraction: NSObject, UIGestureRecognizerDelegate {
     @objc func didPan(_ gesture: ThresholdPanGesture) {
         switch gesture.state {
         case .began:
-            // Check for an object at the touch location.
-            if let object = objectInteracting(with: gesture, in: sceneView) {
-                trackedObject = object
+            // Check for an node at the touch location.
+            if let node = nodeInteracting(with: gesture, in: sceneView) {
+                trackedObject = node
             }
             
         case .changed where gesture.isThresholdExceeded:
-            guard let object = trackedObject else { return }
-            // Move an object if the displacment threshold has been met.
-            translate(object, basedOn: updatedTrackingPosition(for: object, from: gesture))
+            guard let node = trackedObject else { return }
+            // Move an node if the displacment threshold has been met.
+            translate(node, basedOn: updatedTrackingPosition(for: node, from: gesture))
 
             gesture.setTranslation(.zero, in: sceneView)
             
@@ -90,9 +90,9 @@ class AudioNodeInteraction: NSObject, UIGestureRecognizerDelegate {
             break
             
         case .ended:
-            // Update the object's position when the user stops panning.
-            guard let object = trackedObject else { break }
-            setDown(object, basedOn: updatedTrackingPosition(for: object, from: gesture))
+            // Update the node's position when the user stops panning.
+            guard let node = trackedObject else { break }
+            setDown(node, basedOn: updatedTrackingPosition(for: node, from: gesture))
             
             fallthrough
             
@@ -103,24 +103,24 @@ class AudioNodeInteraction: NSObject, UIGestureRecognizerDelegate {
         }
     }
     
-    func updatedTrackingPosition(for object: AudioNode, from gesture: UIPanGestureRecognizer) -> CGPoint {
+    func updatedTrackingPosition(for node: AudioNode, from gesture: UIPanGestureRecognizer) -> CGPoint {
         let translation = gesture.translation(in: sceneView)
         
-        let currentPosition = currentTrackingPosition ?? CGPoint(sceneView.projectPoint(object.position))
+        let currentPosition = currentTrackingPosition ?? CGPoint(sceneView.projectPoint(node.position))
         let updatedPosition = CGPoint(x: currentPosition.x + translation.x, y: currentPosition.y + translation.y)
         currentTrackingPosition = updatedPosition
         return updatedPosition
     }
 
     /**
-     For looking down on the object (99% of all use cases), you subtract the angle.
-     To make rotation also work correctly when looking from below the object one would have to
-     flip the sign of the angle depending on whether the object is above or below the camera.
+     For looking down on the node (99% of all use cases), you subtract the angle.
+     To make rotation also work correctly when looking from below the node one would have to
+     flip the sign of the angle depending on whether the node is above or below the camera.
      - Tag: didRotate */
     @objc func didRotate(_ gesture: UIRotationGestureRecognizer) {
         guard gesture.state == .changed else { return }
         
-        trackedObject?.objectRotation -= Float(gesture.rotation)
+        trackedObject?.nodeRotation -= Float(gesture.rotation)
         
         gesture.rotation = 0
     }
@@ -131,38 +131,38 @@ class AudioNodeInteraction: NSObject, UIGestureRecognizerDelegate {
         
         if let tappedObject = sceneView.audioNode(at: touchLocation) {
             
-            // If an object exists at the tap location, select it.
+            // If an node exists at the tap location, select it.
             selectedObject = tappedObject
-        } else if let object = selectedObject {
+        } else if let node = selectedObject {
             
-            // Otherwise, move the selected object to its new position at the tap location.
-            setDown(object, basedOn: touchLocation)
+            // Otherwise, move the selected node to its new position at the tap location.
+            setDown(node, basedOn: touchLocation)
         }
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        // Allow objects to be translated and rotated at the same time.
+        // Allow nodes to be translated and rotated at the same time.
         return true
     }
 
-    /** A helper method to return the first object that is found under the provided `gesture`s touch locations.
+    /** A helper method to return the first node that is found under the provided `gesture`s touch locations.
      Performs hit tests using the touch locations provided by gesture recognizers. By hit testing against the bounding
-     boxes of the virtual objects, this function makes it more likely that a user touch will affect the object even if the
-     touch location isn't on a point where the object has visible content. By performing multiple hit tests for multitouch
-     gestures, the method makes it more likely that the user touch affects the intended object.
+     boxes of the virtual nodes, this function makes it more likely that a user touch will affect the node even if the
+     touch location isn't on a point where the node has visible content. By performing multiple hit tests for multitouch
+     gestures, the method makes it more likely that the user touch affects the intended node.
       - Tag: TouchTesting
     */
-    private func objectInteracting(with gesture: UIGestureRecognizer, in view: ARSCNView) -> AudioNode? {
+    private func nodeInteracting(with gesture: UIGestureRecognizer, in view: ARSCNView) -> AudioNode? {
         for index in 0..<gesture.numberOfTouches {
             let touchLocation = gesture.location(ofTouch: index, in: view)
             
-            // Look for an object directly under the `touchLocation`.
-            if let object = sceneView.audioNode(at: touchLocation) {
-                return object
+            // Look for an node directly under the `touchLocation`.
+            if let node = sceneView.audioNode(at: touchLocation) {
+                return node
             }
         }
         
-        // As a last resort look for an object under the center of the touches.
+        // As a last resort look for an node under the center of the touches.
         if let center = gesture.center(in: view) {
             return sceneView.audioNode(at: center)
         }
@@ -170,32 +170,37 @@ class AudioNodeInteraction: NSObject, UIGestureRecognizerDelegate {
         return nil
     }
     
-    // MARK: - Update object position
-    /// - Tag: DragVirtualObject
-    func translate(_ object: AudioNode, basedOn screenPos: CGPoint) {
-        object.stopTrackedRaycast()
+    // MARK: - Update node position
+
+    /// - Tag: DragAudioNode
+    func translate(_ node: AudioNode, basedOn screenPos: CGPoint) {
+        node.stopTrackedRaycast()
         
-        // Update the object by using a one-time position request.
-        if let query = sceneView.raycastQuery(from: screenPos, allowing: .estimatedPlane, alignment: object.allowedAlignment) {
-            audioDesignerViewController.createRaycastAndUpdate3DPosition(of: object, from: query)
+        // Update the node by using a one-time position request.
+        if let query = sceneView.raycastQuery(
+            from: screenPos,
+            allowing: .estimatedPlane,
+            alignment: .any
+        ) {
+            audioDesignerViewController.createRaycastAndUpdate3DPosition(of: node, from: query)
         }
     }
     
-    func setDown(_ object: AudioNode, basedOn screenPos: CGPoint) {
-        object.stopTrackedRaycast()
+    func setDown(_ node: AudioNode, basedOn screenPos: CGPoint) {
+        node.stopTrackedRaycast()
         
-        // Prepare to update the object's anchor to the current location.
-        object.shouldUpdateAnchor = true
+        // Prepare to update the node's anchor to the current location.
+        node.shouldUpdateAnchor = true
         
         // Attempt to create a new tracked raycast from the current location.
-        if let query = sceneView.raycastQuery(from: screenPos, allowing: .estimatedPlane, alignment: object.allowedAlignment),
-            let raycast = audioDesignerViewController.createTrackedRaycastAndSet3DPosition(of: object, from: query) {
-            object.raycast = raycast
+        if let query = sceneView.raycastQuery(from: screenPos, allowing: .estimatedPlane, alignment: .any),
+           let raycast = audioDesignerViewController.createTrackedRaycastAndSet3DPosition(of: node, from: query) {
+            node.raycast = raycast
         } else {
-            // If the tracked raycast did not succeed, simply update the anchor to the object's current position.
-            object.shouldUpdateAnchor = false
+            // If the tracked raycast did not succeed, simply update the anchor to the node's current position.
+            node.shouldUpdateAnchor = false
             audioDesignerViewController.updateQueue.async {
-                self.sceneView.addOrUpdateAnchor(for: object)
+                self.sceneView.addOrUpdateAnchor(for: node)
             }
         }
     }
