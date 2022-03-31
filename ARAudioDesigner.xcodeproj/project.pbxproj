@@ -9,19 +9,47 @@
 /* Begin PBXBuildFile section */
 		A129048127F278470023070D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129048027F278470023070D /* AppDelegate.swift */; };
 		A129048327F278470023070D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129048227F278470023070D /* SceneDelegate.swift */; };
-		A129048527F278470023070D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129048427F278470023070D /* ViewController.swift */; };
 		A129048A27F278480023070D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A129048927F278480023070D /* Assets.xcassets */; };
 		A129048D27F278480023070D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A129048B27F278480023070D /* LaunchScreen.storyboard */; };
+		A129049927F279680023070D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129049827F279680023070D /* UIView.swift */; };
+		A12904A527F3C57A0023070D /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12904A427F3C57A0023070D /* FocusSquare.swift */; };
+		A12904A727F3C5850023070D /* FocusSquareSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12904A627F3C5850023070D /* FocusSquareSegment.swift */; };
+		A12904AA27F3C5B30023070D /* AudioDesignerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12904A927F3C5B30023070D /* AudioDesignerViewController.swift */; };
+		A12904AC27F3C62C0023070D /* AudioDesignerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12904AB27F3C62C0023070D /* AudioDesignerViewModel.swift */; };
+		A12904AE27F3C6F80023070D /* float4x4.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12904AD27F3C6F80023070D /* float4x4.swift */; };
+		A12904B027F3C7520023070D /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12904AF27F3C7520023070D /* CGFloat.swift */; };
+		A12904B227F3CEB50023070D /* ARSCNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12904B127F3CEB50023070D /* ARSCNView.swift */; };
+		A12904B427F3D2B30023070D /* AudioDesignerARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12904B327F3D2B30023070D /* AudioDesignerARView.swift */; };
+		A12904B727F547CB0023070D /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12904B627F547CB0023070D /* StatusViewController.swift */; };
+		A12904B927F5481A0023070D /* ARCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12904B827F5481A0023070D /* ARCamera.swift */; };
+		A12904BB27F54C5D0023070D /* AudioNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12904BA27F54C5D0023070D /* AudioNode.swift */; };
+		A12904BE27F54DEA0023070D /* AudioType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12904BD27F54DEA0023070D /* AudioType.swift */; };
+		A12904C227F5581F0023070D /* AudioNodeInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12904C127F5581F0023070D /* AudioNodeInteraction.swift */; };
+		A12904C527F55A7D0023070D /* ThreshholdPanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12904C427F55A7D0023070D /* ThreshholdPanGesture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A129047D27F278470023070D /* ARAudioDesigner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARAudioDesigner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A129048027F278470023070D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A129048227F278470023070D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A129048427F278470023070D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A129048927F278480023070D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A129048C27F278480023070D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A129048E27F278480023070D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A129049827F279680023070D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		A12904A427F3C57A0023070D /* FocusSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
+		A12904A627F3C5850023070D /* FocusSquareSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSquareSegment.swift; sourceTree = "<group>"; };
+		A12904A927F3C5B30023070D /* AudioDesignerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDesignerViewController.swift; sourceTree = "<group>"; };
+		A12904AB27F3C62C0023070D /* AudioDesignerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDesignerViewModel.swift; sourceTree = "<group>"; };
+		A12904AD27F3C6F80023070D /* float4x4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = float4x4.swift; sourceTree = "<group>"; };
+		A12904AF27F3C7520023070D /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
+		A12904B127F3CEB50023070D /* ARSCNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSCNView.swift; sourceTree = "<group>"; };
+		A12904B327F3D2B30023070D /* AudioDesignerARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDesignerARView.swift; sourceTree = "<group>"; };
+		A12904B627F547CB0023070D /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		A12904B827F5481A0023070D /* ARCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCamera.swift; sourceTree = "<group>"; };
+		A12904BA27F54C5D0023070D /* AudioNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioNode.swift; sourceTree = "<group>"; };
+		A12904BD27F54DEA0023070D /* AudioType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioType.swift; sourceTree = "<group>"; };
+		A12904C127F5581F0023070D /* AudioNodeInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioNodeInteraction.swift; sourceTree = "<group>"; };
+		A12904C427F55A7D0023070D /* ThreshholdPanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreshholdPanGesture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +82,100 @@
 		A129047F27F278470023070D /* ARAudioDesigner */ = {
 			isa = PBXGroup;
 			children = (
-				A129048027F278470023070D /* AppDelegate.swift */,
-				A129048227F278470023070D /* SceneDelegate.swift */,
-				A129048427F278470023070D /* ViewController.swift */,
-				A129048927F278480023070D /* Assets.xcassets */,
-				A129048B27F278480023070D /* LaunchScreen.storyboard */,
+				A12904BC27F54DCF0023070D /* Enums */,
+				A12904C027F5578A0023070D /* BaseViews */,
+				A12904BF27F5577E0023070D /* Models */,
+				A12904B527F547BC0023070D /* Status View Controller */,
+				A12904A827F3C58B0023070D /* AudioDesigner */,
+				A129049727F279280023070D /* Utilities+Extensions */,
+				A129049427F278E90023070D /* Support */,
 				A129048E27F278480023070D /* Info.plist */,
 			);
 			path = ARAudioDesigner;
+			sourceTree = "<group>";
+		};
+		A129049427F278E90023070D /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A129048027F278470023070D /* AppDelegate.swift */,
+				A129048227F278470023070D /* SceneDelegate.swift */,
+				A129048927F278480023070D /* Assets.xcassets */,
+				A129048B27F278480023070D /* LaunchScreen.storyboard */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		A129049727F279280023070D /* Utilities+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A129049827F279680023070D /* UIView.swift */,
+				A12904AD27F3C6F80023070D /* float4x4.swift */,
+				A12904AF27F3C7520023070D /* CGFloat.swift */,
+				A12904B127F3CEB50023070D /* ARSCNView.swift */,
+				A12904B827F5481A0023070D /* ARCamera.swift */,
+			);
+			path = "Utilities+Extensions";
+			sourceTree = "<group>";
+		};
+		A12904A327F3C5520023070D /* Focus Square */ = {
+			isa = PBXGroup;
+			children = (
+				A12904A427F3C57A0023070D /* FocusSquare.swift */,
+				A12904A627F3C5850023070D /* FocusSquareSegment.swift */,
+			);
+			path = "Focus Square";
+			sourceTree = "<group>";
+		};
+		A12904A827F3C58B0023070D /* AudioDesigner */ = {
+			isa = PBXGroup;
+			children = (
+				A12904C327F55A600023070D /* Interaction Handling */,
+				A12904A927F3C5B30023070D /* AudioDesignerViewController.swift */,
+				A12904AB27F3C62C0023070D /* AudioDesignerViewModel.swift */,
+			);
+			path = AudioDesigner;
+			sourceTree = "<group>";
+		};
+		A12904B527F547BC0023070D /* Status View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A12904B627F547CB0023070D /* StatusViewController.swift */,
+			);
+			path = "Status View Controller";
+			sourceTree = "<group>";
+		};
+		A12904BC27F54DCF0023070D /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				A12904BD27F54DEA0023070D /* AudioType.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		A12904BF27F5577E0023070D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A12904BA27F54C5D0023070D /* AudioNode.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A12904C027F5578A0023070D /* BaseViews */ = {
+			isa = PBXGroup;
+			children = (
+				A12904A327F3C5520023070D /* Focus Square */,
+				A12904B327F3D2B30023070D /* AudioDesignerARView.swift */,
+			);
+			path = BaseViews;
+			sourceTree = "<group>";
+		};
+		A12904C327F55A600023070D /* Interaction Handling */ = {
+			isa = PBXGroup;
+			children = (
+				A12904C127F5581F0023070D /* AudioNodeInteraction.swift */,
+				A12904C427F55A7D0023070D /* ThreshholdPanGesture.swift */,
+			);
+			path = "Interaction Handling";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,9 +248,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A129048527F278470023070D /* ViewController.swift in Sources */,
+				A12904B027F3C7520023070D /* CGFloat.swift in Sources */,
+				A12904C527F55A7D0023070D /* ThreshholdPanGesture.swift in Sources */,
+				A12904AC27F3C62C0023070D /* AudioDesignerViewModel.swift in Sources */,
+				A12904B227F3CEB50023070D /* ARSCNView.swift in Sources */,
+				A12904AA27F3C5B30023070D /* AudioDesignerViewController.swift in Sources */,
+				A12904B727F547CB0023070D /* StatusViewController.swift in Sources */,
+				A12904A727F3C5850023070D /* FocusSquareSegment.swift in Sources */,
+				A12904BE27F54DEA0023070D /* AudioType.swift in Sources */,
+				A12904BB27F54C5D0023070D /* AudioNode.swift in Sources */,
 				A129048127F278470023070D /* AppDelegate.swift in Sources */,
+				A12904B927F5481A0023070D /* ARCamera.swift in Sources */,
+				A12904A527F3C57A0023070D /* FocusSquare.swift in Sources */,
+				A129049927F279680023070D /* UIView.swift in Sources */,
 				A129048327F278470023070D /* SceneDelegate.swift in Sources */,
+				A12904C227F5581F0023070D /* AudioNodeInteraction.swift in Sources */,
+				A12904B427F3D2B30023070D /* AudioDesignerARView.swift in Sources */,
+				A12904AE27F3C6F80023070D /* float4x4.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
