@@ -1,17 +1,11 @@
 //
-//  ARUtils.swift
+//  float4x4.swift
 //  ARAudioDesigner
 //
-//  Created by Zachery Wagner on 3/28/22.
+//  Created by Zachery Wagner on 3/29/22.
 //
 
-import Foundation
 import ARKit
-import SceneKit
-
-@available(iOS 12.0, *)
-
-// MARK: - float4x4 extensions
 
 extension float4x4 {
     /**
@@ -43,19 +37,5 @@ extension float4x4 {
         columns.0.x = scale
         columns.1.y = scale
         columns.2.z = scale
-    }
-}
-
-// MARK: - CGPoint extensions
-
-extension CGPoint {
-    /// Extracts the screen space point from a vector returned by SCNView.projectPoint(_:).
-    init(_ vector: SCNVector3) {
-        self.init(x: CGFloat(vector.x), y: CGFloat(vector.y))
-    }
-
-    /// Returns the length of a point when considered as a vector. (Used with gesture recognizers.)
-    var length: CGFloat {
-        return sqrt(x * x + y * y)
     }
 }
